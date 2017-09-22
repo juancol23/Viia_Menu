@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/incidencia"
+            android:icon="@drawable/warning"
+            android:title="Incidencias" />
+        <item
+            android:id="@+id/dashboard"
+            android:icon="@drawable/dashboard"
+            android:title="Dashboard" />
+        <item
+            android:id="@+id/reporte"
+            android:icon="@drawable/file"
+            android:title="Reportes" />
+
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/perfil"
+                android:icon="@drawable/man_user"
+                android:title="Perfil" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/camerashutter"
+                android:title="Puntos" />
+            <item
+                android:id="@+id/nav_user"
+                android:icon="@drawable/speedometer"
+                android:title="Usuarios" />
+            <item
+                android:id="@+id/nav_roles"
+                android:icon="@drawable/contacts"
+                android:title="Roles" />
+
+        </menu>
+    </item>
+
+</menu>

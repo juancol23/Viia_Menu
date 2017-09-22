@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imagenPost"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+
+
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="0007"
+        android:id="@+id/textoTitulo"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/imagenPost"
+        android:textStyle="bold"
+
+        android:layout_marginLeft="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Victor"
+        android:id="@+id/textoDescripcion"
+        android:layout_below="@+id/textoTitulo"
+        android:layout_marginTop="5dp"
+        android:layout_alignLeft="@+id/textoTitulo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/textoDescripcion"
+        android:layout_alignLeft="@+id/textoTitulo"
+        android:id="@+id/textoFecha"
+     />
+
+
+</RelativeLayout>

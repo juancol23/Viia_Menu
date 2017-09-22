@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="v.viia.com.viia_menu.MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        android:visibility="gone"
+        android:id="@+id/textView3" />
+
+    <Button
+        android:id="@+id/show_options_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:text="foto"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Ingrese Punto"
+        android:ems="10"
+        android:id="@+id/editText_punto"
+        android:layout_below="@+id/show_options_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="26dp"
+        android:layout_alignRight="@+id/set_picture"
+        android:layout_alignEnd="@+id/set_picture" />
+
+    <ImageView
+        android:id="@+id/set_picture"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+
+        android:rotation="90"
+        android:foregroundGravity="center_vertical"
+        android:layout_below="@+id/tv_user"
+        android:layout_toRightOf="@+id/show_options_button"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:layout_alignBottom="@+id/subir" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_user"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:visibility="gone" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:layout_below="@+id/editText_punto"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="21dp"
+        android:id="@+id/editText_observacion"
+        android:hint="Ingrese una Observacion"
+        android:layout_alignRight="@+id/editText_punto"
+        android:layout_alignEnd="@+id/editText_punto" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Ingrese Fecha"
+        android:ems="10"
+        android:layout_below="@+id/editText_observacion"
+        android:layout_marginTop="12dp"
+        android:id="@+id/editText_fecha"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/editText_observacion"
+        android:layout_alignEnd="@+id/editText_observacion" />
+
+    <Button
+        android:id="@+id/btnTelerik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_above="@+id/set_picture"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="Send Text" />
+
+    <Button
+        android:id="@+id/subir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enviar Info"
+        android:layout_below="@+id/editText_fecha"
+        android:layout_toRightOf="@+id/show_options_button"
+        android:layout_toEndOf="@+id/show_options_button"
+        android:layout_marginTop="30dp" />
+
+
+
+</RelativeLayout>

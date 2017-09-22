@@ -1,0 +1,15 @@
+<resources>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+
+    <string name="app_name">Viia_Movil</string>
+    <string name="_2017_invian_monitoring_system_todos_los_derechos_reservados">© 2017 INVIAN | Monitoring System - Todos los derechos reservados</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
