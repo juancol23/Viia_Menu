@@ -94,18 +94,17 @@ SwipeRefreshLayout swipeRefreshLayout;
     private ProgressDialog mProgress;
 
 
-
-
     private TextView mTv_user;
     private EditText mEditText_punto, mEditText_observacion,mEditText_fecha;
     //Servicio
     //private String UploadUrl = "http://legalmovil.com/service/updateinf2o.php";
-    private String UploadUrl = "http://api.everlive.com/v1/vqfkdc51v767oq7x/Functions/alserts";
+    // private String UploadUrl = "http://api.everlive.com/v1/vqfkdc51v767oq7x/Functions/alserts";
+    private String UploadUrl = "http://legalmovil.com/service/updateinf2o.php/";
+    // private String UploadUrl = "http://legalmovil.com/invian/welcome/imagen/";
+
     private String urlTelerikServiceI = "https://api.everlive.com/v1/e82dy3vmux1jchlu/VT_incidencia/";
 
-
-    private View contenido_a,contenido_b,contenido_c,contenido_incidencia;
-
+    private View contenido_a,contenido_b,contenido_c,contenido_incidencia,content_d;
 
     /*Web View*/
     private WebView WebViewReader1;
@@ -122,20 +121,31 @@ SwipeRefreshLayout swipeRefreshLayout;
         adapter = new PostAdapter(this);
         listView.setAdapter(adapter);
 
-/*
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ItemClicked item = adapter.getItemAtPosition(position);
 
-                Intent intent = new Intent(MainActivity.this,Login.class);
-                //based on item add info to intent
-                startActivity(intent);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            public void onItemClick(AdapterView<?> arg0, View v, int arg2,
+                                    long arg3) {
+                //here v is your ListItem's layout.
+                TextView tv = (TextView) v.findViewById(R.id.textoTitulo);
+                String punto = tv.getText().toString();
+                String usuario = tv.getText().toString();
+                String fecha = tv.getText().toString();
+
+
+                Toast.makeText(getApplicationContext(), "Click"+punto, Toast.LENGTH_SHORT).show();
+
+                /*Identificadores de contenido detalle content d*/
+                TextView dpunto = (TextView) findViewById(R.id.v_ta_tv_punto);
+                dpunto.setText(punto);
+                contenido_incidencia.setVisibility(View.GONE);
+                content_d.setVisibility(View.VISIBLE);
+
             }
-
-
         });
-*/
+        // Populate the list, through the adapter
+
 
 
 
@@ -167,6 +177,7 @@ SwipeRefreshLayout swipeRefreshLayout;
                 contenido_b.setVisibility(View.GONE);
                 contenido_c.setVisibility(View.GONE);
                 swipeRefreshLayout.setVisibility(View.GONE);
+                content_d.setVisibility(View.GONE);
 
             }
         });
@@ -196,10 +207,12 @@ SwipeRefreshLayout swipeRefreshLayout;
         //mSubir = (Button) findViewById(R.id.subir);
         mRlView = (RelativeLayout) findViewById(R.id.content_main);
 
-         contenido_a = (View) findViewById(R.id.content_a);
-         contenido_b = (View) findViewById(R.id.content_b);
-         contenido_c = (View) findViewById(R.id.content_c);
-         contenido_incidencia = (View) findViewById(R.id.listView);
+         contenido_a =   findViewById(R.id.content_a);
+         contenido_b =   findViewById(R.id.content_b);
+         contenido_c =  findViewById(R.id.content_c);
+         contenido_incidencia =  findViewById(R.id.listView);
+         content_d = findViewById(R.id.content_d);
+
         mSubirTelerik =(Button)  findViewById(R.id.subir);
 
         if(mayRequestStoragePermission()) {
@@ -207,15 +220,7 @@ SwipeRefreshLayout swipeRefreshLayout;
         }else {
             mOptionButton.setEnabled(false);
         }
-/*
-        mSubir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //upImage();
-                mProgress.setMessage("Cargando...");
-                mProgress.show();
-            }
-        });*/
+
         mOptionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -370,6 +375,9 @@ SwipeRefreshLayout swipeRefreshLayout;
                 Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
                 mProgress.dismiss();
 
+                mSetImage.setImageResource(0);
+
+
 
             }
         }, new Response.ErrorListener() {
@@ -449,7 +457,8 @@ SwipeRefreshLayout swipeRefreshLayout;
                 String punto =punto_;
                 String observacion =obserservacion_;
 
-                String urlImagen ="http://legalmovil.com/invian/public/uploads/VT_"+getFecha+".jpg";
+                //String urlImagen ="http://legalmovil.com/invian/public/uploads/VT_"+getFecha+".jpg";
+                String urlImagen ="http://legalmovil.com/service/uploads/VT_"+getFecha+".jpg";
 
                 params.put("name",name);
                 params.put("usuario",usuario);
@@ -458,6 +467,8 @@ SwipeRefreshLayout swipeRefreshLayout;
                 params.put("urlImagen",urlImagen);
                 params.put("fecha",getFecha);
                 upImage(getFecha);
+
+                Log.v("FECHA","fecha: "+getFecha);
                 return params;
             }
         };
@@ -556,6 +567,8 @@ SwipeRefreshLayout swipeRefreshLayout;
             contenido_c.setVisibility(View.GONE);
             contenido_incidencia.setVisibility(View.VISIBLE);
             swipeRefreshLayout.setVisibility(View.VISIBLE);
+            content_d.setVisibility(View.GONE);
+
 
 
 
@@ -566,6 +579,8 @@ SwipeRefreshLayout swipeRefreshLayout;
             contenido_c.setVisibility(View.GONE);
             contenido_incidencia.setVisibility(View.GONE);
             swipeRefreshLayout.setVisibility(View.GONE);
+            content_d.setVisibility(View.GONE);
+
 
 
         } else if (id == R.id.reporte) {
@@ -575,6 +590,8 @@ SwipeRefreshLayout swipeRefreshLayout;
             contenido_c.setVisibility(View.VISIBLE);
             contenido_incidencia.setVisibility(View.GONE);
             swipeRefreshLayout.setVisibility(View.GONE);
+            content_d.setVisibility(View.GONE);
+
 
         }   else if (id == R.id.perfil) {
 

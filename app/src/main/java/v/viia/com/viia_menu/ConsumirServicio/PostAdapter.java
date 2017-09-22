@@ -42,6 +42,9 @@ public class PostAdapter extends ArrayAdapter {
 
     private static final String URL_BASE = "https://api.everlive.com/v1/e82dy3vmux1jchlu/";
     private static final String URL_JSON = "VT_incidencia";
+
+
+
 /*
     private static final String URL_BASE = "https://api.everlive.com/v1/e82dy3vmux1jchlu";
     private static final String URL_JSON = "/VT_incidencia";*/
@@ -119,7 +122,7 @@ public class PostAdapter extends ArrayAdapter {
 
         // Petición para obtener la imagen
         ImageRequest request = new ImageRequest(
-                URL_BASE + item.getImagen(),
+                 item.getImagen(),
                 new Response.Listener<Bitmap>() {
                     @Override
                     public void onResponse(Bitmap bitmap) {

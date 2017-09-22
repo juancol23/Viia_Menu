@@ -20,6 +20,7 @@
         android:visibility="gone"
         android:id="@+id/textView3" />
 
+
     <Button
         android:id="@+id/show_options_button"
         android:layout_width="wrap_content"
@@ -36,6 +37,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:hint="Ingrese Punto"
+        android:text="SJM-004 A"
         android:ems="10"
         android:id="@+id/editText_punto"
         android:layout_below="@+id/show_options_button"
@@ -54,11 +56,9 @@
 
         android:rotation="90"
         android:foregroundGravity="center_vertical"
-        android:layout_below="@+id/tv_user"
-        android:layout_toRightOf="@+id/show_options_button"
-        android:layout_marginLeft="11dp"
-        android:layout_marginStart="11dp"
-        android:layout_alignBottom="@+id/subir" />
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -74,10 +74,12 @@
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="10"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque perspiciatis vitae quibusdam quas qh"
         android:layout_below="@+id/editText_punto"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="21dp"
+        android:maxLines="4"
         android:id="@+id/editText_observacion"
         android:hint="Ingrese una Observacion"
         android:layout_alignRight="@+id/editText_punto"
