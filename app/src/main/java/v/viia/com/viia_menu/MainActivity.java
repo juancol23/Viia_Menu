@@ -1,13 +1,14 @@
 package v.viia.com.viia_menu;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Build;
@@ -16,7 +17,6 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -128,17 +128,26 @@ SwipeRefreshLayout swipeRefreshLayout;
             public void onItemClick(AdapterView<?> arg0, View v, int arg2,
                                     long arg3) {
                 //here v is your ListItem's layout.
-                TextView tv = (TextView) v.findViewById(R.id.textoTitulo);
-                String punto = tv.getText().toString();
-                String usuario = tv.getText().toString();
-                String fecha = tv.getText().toString();
+                TextView tvp = (TextView) v.findViewById(R.id.textoTitulo);
+                ImageView bitmap = (ImageView) v.findViewById(R.id.imagenPost);
+
+                String punto = tvp.getText().toString();
+                Drawable bitmaps = bitmap.getDrawable();
+
+               // imagen = mSetImage.setImageBitmap(bitmap);
 
 
                 Toast.makeText(getApplicationContext(), "Click"+punto, Toast.LENGTH_SHORT).show();
-
                 /*Identificadores de contenido detalle content d*/
                 TextView dpunto = (TextView) findViewById(R.id.v_ta_tv_punto);
+                ImageView dbitmap = (ImageView) findViewById(R.id.cabecera);
+
+
+                dbitmap.setImageDrawable(bitmaps);
+
+
                 dpunto.setText(punto);
+
                 contenido_incidencia.setVisibility(View.GONE);
                 content_d.setVisibility(View.VISIBLE);
 
@@ -517,7 +526,7 @@ SwipeRefreshLayout swipeRefreshLayout;
 
     private String imageToString(Bitmap bitmap){
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG,10,byteArrayOutputStream);
+        bitmap.compress(Bitmap.CompressFormat.JPEG,1,byteArrayOutputStream);
         byte[] imgBytes = byteArrayOutputStream.toByteArray();
         return Base64.encodeToString(imgBytes,Base64.DEFAULT);
     }
